@@ -1,0 +1,23 @@
+{% extends 'resume/base.html' %}
+{% load myfilter %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-10">
+                <h4 class="alert alert-danger text-center"><u>Candidate Profile</u></h4>
+                <p>Application No: {{candidate.id}}</p>
+                <img src="{{candidate.profile_img.url}}" alt="" class="img-fluid img-thumbnail mt-2" width="150" height="150">
+                <p>Name: {{candidate.name}}</p>
+                <p>Date of Birth: {{candidate.dob}}</p>
+                <p>Gender: {{candidate.gender}}</p>
+                <p>Address: {{candidate.locality}},{{candidate.city}},{{candidate.state}}-{{candidate.pin_code}}</p>
+                <p>Job City: {{candidate.job_city|remove_special:"[]'"}}</p>
+                <p>Attachment: <a href="{{candidate.my_file.url}}">Download</a></p>
+                <a href="/" class="btn btn-danger">Back to Home</a>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+    
